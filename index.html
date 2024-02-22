@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>V&A Search</title>
+    <link rel="stylesheet" href="style.css">
     <script src="index.js"></script>
 </head>
 
 <body>
-    <form role="search" method="GET">
-        <input type="search" aria-label="Search" aria-describedby="searchDescription" id="search" value=""
-            placeholder="Enter search term..." autofocus/>
-        <label for="search">Search V&A archives</label>
-        <div id="searchDescription" class="sr-only">Search results will appear below</div>
+
+    <form class="search-form" role="search" method="GET">
+        <input type="search" aria-label="Search" aria-described="search results will appear below" id="search" value=""
+            placeholder="Enter search term..." autofocus />
+        <input type="reset" value="✖"></input>
         <button type="submit">Submit search</button>
     </form>
 
