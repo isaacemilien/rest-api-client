@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>V&A Search</title>
+    <script src="index.js"></script>
 </head>
+
 <body>
-    
+    <form role="search" method="GET">
+        <input type="search" aria-label="Search" aria-describedby="searchDescription" id="search" value=""
+            placeholder="Enter search term..." autofocus/>
+        <label for="search">Search V&A archives</label>
+        <div id="searchDescription" class="sr-only">Search results will appear below</div>
+        <button type="submit">Submit search</button>
+    </form>
+
+    <div aria-live="polite" role="region" aria-atomic="true">
+        <div class="sr-only">Updates will be announced here.</div>
+    </div>
+
+    <div id="search-results" role="region" aria-live="assertive" aria-relevant="additions" aria-label="Search results">
+    </div>
 </body>
-<script src="index.js"></script>
+
 </html>
