@@ -1,15 +1,6 @@
-:root {
-    --bg-colour-primary: #202124;
-    --text-colour: #e8eaed;
-    --bg-colour-secondary: #303134;
-}
-
 body {
     background-color: var(--bg-colour-primary);
     color: var(--text-colour);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-    padding-top: 1rem;
 }
 
 form {
@@ -37,10 +28,7 @@ form {
     padding-right: 33px;
 }
 
-[type=search]::-webkit-search-decoration,
-[type="search"]::-webkit-search-cancel-button {
-    appearance: none;
-}
+
 
 .search-form input[type=search] {
     display: flex;
