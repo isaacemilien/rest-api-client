@@ -14,27 +14,32 @@ window.addEventListener("load", () => {
 
     var xhr = new XMLHttpRequest();
 
-
     xhr.addEventListener("load", () => {
       if (xhr.status == 200) {
         const data = JSON.parse(xhr.responseText);
 
         const contentSection = document.querySelector("#search-results");
 
+        while (contentSection.firstChild) {
+          contentSection.removeChild(contentSection.lastChild);
+        }
 
         for (record of data.records) {
 
           console.log(record);
 
-          // console.log(item.data[0].title);
-          // console.log(item.data[0].description);
-          // console.log(item.links[0].href);
-
+          const title = document.createElement('h1')
+          const date = document.createElement('h2')
           const img = document.createElement('img');
+
+          title.textContent = record._primaryTitle;
+          date.textContent = record._primaryDate;
           img.setAttribute("src", record._images._primary_thumbnail);
 
-
+          contentSection.appendChild(title);
+          contentSection.appendChild(date);
           contentSection.appendChild(img);
+
         }
       } else {
         console.log(xhr.status)
