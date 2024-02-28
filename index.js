@@ -8,7 +8,6 @@ window.addEventListener("load", () => {
     console.log(input.value);
 
     const search = input.value;
-
     // construct url
     const url = "https://api.vam.ac.uk/v2/objects/search?q=" + encodeURIComponent(search);
 
@@ -28,8 +27,8 @@ window.addEventListener("load", () => {
 
           console.log(record);
 
-          const title = document.createElement('h1')
-          const date = document.createElement('h2')
+          const title = document.createElement('h2');
+          const date = document.createElement('h3');
           const img = document.createElement('img');
 
           title.textContent = record._primaryTitle;
