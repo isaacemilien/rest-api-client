@@ -21,14 +21,11 @@ form {
     color: var(--text-colour);
     border: 1px solid transparent;
     font-size: 1rem;
-
 }
 
 .search-form button {
     padding-right: 33px;
 }
-
-
 
 .search-form input[type=search] {
     display: flex;
@@ -42,4 +39,37 @@ form {
     border-left: 1px solid #5f6368;
     height: 1.5rem;
     margin-left: 2px;
+}
+
+.hidden {
+    visibility: hidden !important;
+}
+
+/* Loading */
+.lds-dual-ring {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid var(--text-colour);
+    border-color: var(--text-colour) transparent var(--text-colour) transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

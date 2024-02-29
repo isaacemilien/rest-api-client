@@ -1,11 +1,10 @@
 window.addEventListener("load", () => {
   const btn1 = document.querySelector(".search-form");
   const input = document.querySelector("#search");
+  const loadingRing = document.querySelector(".lds-dual-ring");
 
   btn1.addEventListener("submit", (event) => {
     event.preventDefault();
-
-    console.log(input.value);
 
     const search = input.value;
     // construct url
@@ -14,6 +13,8 @@ window.addEventListener("load", () => {
     var xhr = new XMLHttpRequest();
 
     xhr.addEventListener("load", () => {
+      loadingRing.classList.add("hidden");
+
       if (xhr.status == 200) {
         const data = JSON.parse(xhr.responseText);
 
@@ -38,7 +39,6 @@ window.addEventListener("load", () => {
           contentSection.appendChild(title);
           contentSection.appendChild(date);
           contentSection.appendChild(img);
-
         }
       } else {
         console.log(xhr.status)
@@ -47,5 +47,7 @@ window.addEventListener("load", () => {
 
     xhr.open("GET", url, true);
     xhr.send();
+
+    loadingRing.classList.remove("hidden");
   })
 });
