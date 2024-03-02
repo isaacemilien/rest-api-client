@@ -34,7 +34,7 @@ window.addEventListener("load", () => {
 
           title.textContent = record._primaryTitle;
           date.textContent = record._primaryDate;
-          img.setAttribute("src", record._images._primary_thumbnail);
+          img.setAttribute("src", record._images._iiif_image_base_url + "/full/full/0/default.jpg");
 
           contentSection.appendChild(title);
           contentSection.appendChild(date);
