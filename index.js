@@ -3,51 +3,47 @@ window.addEventListener("load", () => {
   const input = document.querySelector("#search");
   const loadingRing = document.querySelector(".lds-dual-ring");
 
-  btn1.addEventListener("submit", (event) => {
+  btn1.addEventListener("submit", async (event) => {
     event.preventDefault();
+    loadingRing.classList.remove("hidden");
 
     const search = input.value;
-    // construct url
     const url = "https://api.vam.ac.uk/v2/objects/search?q=" + encodeURIComponent(search);
 
-    var xhr = new XMLHttpRequest();
-
-    xhr.addEventListener("load", () => {
-      loadingRing.classList.add("hidden");
-
-      if (xhr.status == 200) {
-        const data = JSON.parse(xhr.responseText);
-
-        const contentSection = document.querySelector("#search-results");
-
-        while (contentSection.firstChild) {
-          contentSection.removeChild(contentSection.lastChild);
-        }
-
-        for (record of data.records) {
-
-          console.log(record);
-
-          const title = document.createElement('h2');
-          const date = document.createElement('h3');
-          const img = document.createElement('img');
-
-          title.textContent = record._primaryTitle;
-          date.textContent = record._primaryDate;
-          img.setAttribute("src", record._images._iiif_image_base_url + "/full/full/0/default.jpg");
-
-          contentSection.appendChild(title);
-          contentSection.appendChild(date);
-          contentSection.appendChild(img);
-        }
-      } else {
-        console.log(xhr.status)
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`); 
       }
-    });
+      const data = await response.json(); 
 
-    xhr.open("GET", url, true);
-    xhr.send();
+      const contentSection = document.querySelector("#search-results");
 
-    loadingRing.classList.remove("hidden");
+      // Clear previous search results
+      while (contentSection.firstChild) {
+        contentSection.removeChild(contentSection.lastChild);
+      }
+
+      // Iterate through records and create elements
+      for (let record of data.records) {
+        console.log(record);
+
+        const title = document.createElement('h2');
+        const date = document.createElement('h3');
+        const img = document.createElement('img');
+
+        title.textContent = record._primaryTitle;
+        date.textContent = record._primaryDate;
+        img.setAttribute("src", record._images._iiif_image_base_url + "/full/full/0/default.jpg");
+
+        contentSection.appendChild(title);
+        contentSection.appendChild(date);
+        contentSection.appendChild(img);
+      }
+    } catch (error) {
+      console.error("Fetch error: " + error.message);
+    } finally {
+      loadingRing.classList.add("hidden");
+    }
   })
 });
