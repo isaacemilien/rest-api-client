@@ -8,7 +8,7 @@ window.addEventListener("load", () => {
     loadingRing.classList.remove("hidden");
 
     const search = input.value;
-    const url = "https://api.vam.ac.uk/v2/objects/search?q=" + encodeURIComponent(search);
+    const url = "https://api.vam.ac.uk/v2/objects/search?images=true&q=" + encodeURIComponent(search);
 
     try {
       const response = await fetch(url);
