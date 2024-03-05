@@ -43,6 +43,28 @@ form {
     visibility: hidden !important;
 }
 
+#search-results {
+    padding: 0 40vw;
+}
+
+.content-card{
+margin-bottom: 4.5vw;
+}
+
+.content-card div:first-of-type{
+    font-weight: 500;
+}
+
+.content-card img {
+    height: auto;
+    margin: 0 0 10px;
+    max-height: 586px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 100%;
+}
+
+
 /* Loading */
 .lds-dual-ring {
     display: inline-block;

@@ -28,17 +28,22 @@ window.addEventListener("load", () => {
       for (let record of data.records) {
         console.log(record);
 
-        const title = document.createElement('h2');
-        const date = document.createElement('h3');
+        const contentCard = document.createElement('div');
+        const figureCaption = document.createElement('figcaption');
+        const title = document.createElement('div');
+        const date = document.createElement('div');
         const img = document.createElement('img');
 
+        contentCard.classList.add("content-card");
         title.textContent = record._primaryTitle;
         date.textContent = record._primaryDate;
         img.setAttribute("src", record._images._iiif_image_base_url + "/full/full/0/default.jpg");
 
-        contentSection.appendChild(title);
-        contentSection.appendChild(date);
-        contentSection.appendChild(img);
+        figureCaption.appendChild(title);
+        figureCaption.appendChild(date);
+        contentCard.appendChild(img);
+        contentCard.appendChild(figureCaption);
+        contentSection.appendChild(contentCard);
       }
     } catch (error) {
       console.error("Fetch error: " + error.message);
