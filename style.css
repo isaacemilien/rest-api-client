@@ -41,6 +41,7 @@ form {
 
 .hidden {
     visibility: hidden !important;
+    position: absolute;
 }
 
 main {
@@ -49,7 +50,7 @@ main {
 }
 
 #search-results {
-    padding: 0 15vw;
+    padding: 4vw 12vw;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 0 88px;
@@ -100,9 +101,11 @@ main {
 
 /* Loading */
 .lds-dual-ring {
-    display: inline-block;
+    display: block;
     width: 80px;
     height: 80px;
+    margin: auto;
+    padding: 90px 0;
 }
 
 .lds-dual-ring:after {
