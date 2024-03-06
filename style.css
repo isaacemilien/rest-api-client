@@ -9,9 +9,9 @@ form {
     min-height: 44px;
     background: #303134;
     border-radius: 24px;
-    /* margin: 0 auto; */
-    /* width: 690px; */
     align-items: center;
+    margin: 0 auto;
+    width: 750px;
 }
 
 .search-form * {
@@ -58,15 +58,25 @@ main {
 @media screen and (max-width: 900px) {
     #search-results {
         grid-template-columns: 1fr 1fr;
+
     }
-    main{
+
+    main {
         max-width: 1200px;
+    }
+
+    form {
+        width: 650px;
     }
 }
 
 @media screen and (max-width: 600px) {
     #search-results {
         grid-template-columns: 1fr;
+    }
+
+    form {
+        width: auto;
     }
 }
 
