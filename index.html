@@ -11,20 +11,21 @@
 </head>
 
 <body>
-    <h1>V&A Explorer: A Lightweight REST API Client</h1>
+    <main>
+        <form class="search-form" role="search" method="GET">
+            <input type="search" aria-label="Search" aria-described="search results will appear below" id="search"
+                value="" placeholder="Enter search term..." autofocus />
+            <input type="reset" value="✖"></input>
+            <span></span>
+            <button type="submit">&#x1F50E;&#xFE0E;</button>
+        </form>
 
-    <form class="search-form" role="search" method="GET" >
-        <input type="search" aria-label="Search" aria-described="search results will appear below" id="search" value=""
-            placeholder="Enter search term..." autofocus/>
-        <input type="reset" value="✖"></input>
-        <span></span>
-        <button type="submit">&#x1F50E;&#xFE0E;</button>
-    </form>
+        <div class="lds-dual-ring hidden"></div>
 
-    <div class="lds-dual-ring hidden"></div>
-
-    <div id="search-results" role="region" aria-live="assertive" aria-relevant="additions" aria-label="Search results">
-    </div>
+        <div id="search-results" role="region" aria-live="assertive" aria-relevant="additions"
+            aria-label="Search results">
+        </div>
+    </main>
 
     <footer>
         &copy; 2024 V&A Explorer. All rights reserved.
