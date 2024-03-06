@@ -1,0 +1,13 @@
+    <svg viewBox="13.1012 23.2758 270.6192 174.9125" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+        <rect x="158.05" y="110.748" width="270.027" height="173.992"
+            style="fill: rgba(216, 216, 216, 0); stroke: rgb(98, 98, 98); stroke-width: 8px;"
+            transform="matrix(0.9999939799308777, -0.0034130001440644264, 0.0034130001440644264, 0.9999939799308777, -145.3257751464844, -86.010498046875)" />
+        <path d="M 97.047 95.325 L 167.863 197.41 L 26.231 197.41 L 97.047 95.325 Z"
+            style="stroke: rgb(0, 0, 0); fill: rgb(98, 98, 98); stroke-opacity: 0; stroke-width: 8px;"
+            bx:shape="triangle 26.231 95.325 141.632 102.085 0.5 0 1@1bab3e99" />
+        <path d="M 213.535 123.437 L 268.759 196.846 L 158.31 196.846 L 213.535 123.437 Z"
+            style="stroke: rgb(0, 0, 0); fill: rgb(98, 98, 98); stroke-opacity: 0; stroke-width: 8px;"
+            bx:shape="triangle 158.31 123.437 110.449 73.409 0.5 0 1@a3963a56" />
+        <ellipse style="stroke: rgba(0, 0, 0, 0); fill: rgb(98, 98, 98); stroke-width: 8px;" cx="185.259" cy="79.724"
+            rx="15.602" ry="15.743" />
+    </svg>

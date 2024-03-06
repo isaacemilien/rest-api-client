@@ -8,14 +8,14 @@ window.addEventListener("load", () => {
     loadingRing.classList.remove("hidden");
 
     const search = input.value;
-    const url = "https://api.vam.ac.uk/v2/objects/search?images=true&q=" + encodeURIComponent(search);
+    const url = "https://api.vam.ac.uk/v2/objects/search?&q=" + encodeURIComponent(search);
 
     try {
       const response = await fetch(url);
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`); 
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
-      const data = await response.json(); 
+      const data = await response.json();
 
       const contentSection = document.querySelector("#search-results");
 
@@ -37,7 +37,7 @@ window.addEventListener("load", () => {
         contentCard.classList.add("content-card");
         title.textContent = record._primaryTitle;
         date.textContent = record._primaryDate;
-        img.setAttribute("src", record._images._iiif_image_base_url + "/full/full/0/default.jpg");
+        img.setAttribute("src", record._images._iiif_image_base_url ? record._images._iiif_image_base_url + "/full/full/0/default.jpg" : "images/image-placeholder.svg");
 
         figureCaption.appendChild(title);
         figureCaption.appendChild(date);
