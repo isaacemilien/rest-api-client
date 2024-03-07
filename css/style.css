@@ -3,6 +3,28 @@ body {
     color: var(--text-colour);
 }
 
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+header img {
+    height: auto;
+    max-height: 658px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 35%;
+}
+
+header h1 {
+    font-weight: 100;
+    margin: 0;
+}
+
+
 form {
     display: flex;
     position: relative;
@@ -53,11 +75,11 @@ form {
 
 }
 
-.notification{
-background-color: #5e8cba8f;
+.notification {
+    background-color: #5e8cba8f;
 }
 
-.warning{
+.warning {
     background-color: #b71c1c8f;
 }
 
@@ -88,6 +110,11 @@ main {
     main {
         max-width: 1200px;
     }
+
+    header img {
+        width: 50%;
+    }
+
 }
 
 @media screen and (max-width: 600px) {
@@ -101,6 +128,10 @@ main {
 
     #search-results {
         padding: 4vw 14vw;
+    }
+
+    header img {
+        width: 100%;
     }
 }
 
