@@ -5,21 +5,25 @@ window.addEventListener("load", () => {
   const contentSection = document.querySelector("#search-results");
   const userAlert = document.querySelector("#alert-content")
 
+  function toggleVisibility(element, isVisible) {
+    element.classList.toggle("hidden", !isVisible);
+  }
+
   btn1.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const searchInput = input.value;
-    const url = "https://api.vam.ac.uk/v2/objects/search?&q=" + encodeURIComponent(searchInput);
+    const url = `https://api.vam.ac.uk/v2/objects/search?&q=${encodeURIComponent(searchInput)}`;
 
     if (!searchInput) {
-      userAlert.classList.remove("hidden");
+      toggleVisibility(userAlert, true);
       userAlert.classList.add("warning")
 
       userAlert.firstElementChild.textContent = "You cannot leave the search input box empty.";
       return;
     }
 
-    userAlert.classList.add("hidden");
+    toggleVisibility(userAlert, false);
     userAlert.classList.remove("warning")
 
     try {
@@ -28,15 +32,17 @@ window.addEventListener("load", () => {
         contentSection.removeChild(contentSection.lastChild);
       }
 
-      loadingRing.classList.remove("hidden");
+      toggleVisibility(loadingRing, true);
+
+
       const response = await fetch(url);
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        throw new Error(`Server responded with status: ${response.status}`);
       }
       const data = await response.json();
 
       if (Object.keys(data.records).length == 0) {
-        userAlert.classList.remove("hidden");
+        toggleVisibility(userAlert, true);
         userAlert.classList.add("notification")
         userAlert.firstElementChild.textContent = "Oops! We couldn't find any results matching your search query.";
       }
@@ -61,9 +67,15 @@ window.addEventListener("load", () => {
         contentSection.appendChild(contentCard);
       }
     } catch (error) {
-      console.error("Fetch error: " + error.message);
+      if (error instanceof TypeError) {
+        userAlert.firstElementChild.textContent = "Network error, please check your internet connection and try again.";
+      } else {
+        userAlert.firstElementChild.textContent = error.message;
+      }
+      userAlert.classList.add("warning")
+      userAlert.classList.remove("hidden");
     } finally {
-      loadingRing.classList.add("hidden");
+      toggleVisibility(loadingRing, false);
     }
   })
 });
