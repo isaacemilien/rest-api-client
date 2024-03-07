@@ -2,26 +2,23 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>V&A Search</title>
-    <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/index.js"></script>
 </head>
 
 <body>
     <header>
-        <img src="images/logo.png" alt="" srcset="">
+        <img src="images/logo.png" alt="Victoria and Albert Museum logo">
         <h1>Search V&A Collections</h1>
     </header>
     <main>
         <form class="search-form" role="search" method="GET">
-            <input type="search" aria-label="Search" id="search" value="" placeholder="Enter search term..." autofocus
-                autocomplete="off">
-            <input type="reset" value="✖">
-            <span></span>
-            <button type="submit">&#x1F50E;&#xFE0E;</button>
+            <input type="search" id="search" value="" placeholder="Enter search term..." autofocus autocomplete="off">
+            <input type="reset" aria-label="Clear search" value="✖">
+            <button type="submit" aria-label="Search">&#x1F50E;&#xFE0E;</button>
         </form>
 
         <div id="alert-content" class="hidden">
@@ -30,13 +27,13 @@
 
         <div class="lds-dual-ring hidden"></div>
 
-        <div id="search-results" role="region" aria-live="assertive" aria-relevant="additions"
+        <section id="search-results" aria-live="assertive" aria-relevant="additions"
             aria-label="Search results">
-        </div>
+        </section>
     </main>
 
     <footer>
-        &copy; 2024 V&A Explorer. All rights reserved.
+        &copy; 2024  Victoria and Albert Museum. RÆBURN V&A Logo. All rights reserved.  
     </footer>
 </body>
 
