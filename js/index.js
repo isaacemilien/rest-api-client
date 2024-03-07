@@ -11,8 +11,6 @@ window.addEventListener("load", () => {
 
   function displaySearchResults(data) {
 
-    console.log(data);
-    
     // Check results exist 
     if (Object.keys(data.records).length == 0) {
       toggleVisibility(userAlert, true);
