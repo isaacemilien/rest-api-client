@@ -45,6 +45,9 @@ form {
 
 .search-form button {
     padding-right: 33px;
+    border-left: 1px solid #5f6368;
+    height: 1.5rem;
+    margin-left: 1px;
 }
 
 .search-form input[type=search] {

@@ -10,6 +10,10 @@ window.addEventListener("load", () => {
   }
 
   function displaySearchResults(data) {
+
+    console.log(data);
+    
+    // Check results exist 
     if (Object.keys(data.records).length == 0) {
       toggleVisibility(userAlert, true);
       userAlert.classList.remove("warning")
@@ -18,6 +22,7 @@ window.addEventListener("load", () => {
       return;
     }
 
+    // Create and populate content cards
     for (let record of data.records) {
       const contentCard = document.createElement('div');
       const figureCaption = document.createElement('figcaption');
@@ -29,6 +34,7 @@ window.addEventListener("load", () => {
       title.textContent = record._primaryTitle;
       date.textContent = record._primaryDate;
       img.setAttribute("src", record._images._iiif_image_base_url ? record._images._iiif_image_base_url + "/full/full/0/default.jpg" : "images/image-placeholder.svg");
+      img.setAttribute("alt", record._images._iiif_image_base_url ? "Artwork image" : "Placeholder image");
 
       figureCaption.appendChild(title);
       figureCaption.appendChild(date);
@@ -46,10 +52,10 @@ window.addEventListener("load", () => {
 
   btn1.addEventListener("submit", async (event) => {
     event.preventDefault();
-
+    
     const searchInput = input.value;
-    const url = `https://api.vam.ac.uk/v2/objects/search?&q=${encodeURIComponent(searchInput)}`;
-
+    
+    // Check input contains text
     if (!searchInput) {
       toggleVisibility(userAlert, true);
       userAlert.classList.add("warning")
@@ -58,7 +64,11 @@ window.addEventListener("load", () => {
       return;
     }
 
+    const url = `https://api.vam.ac.uk/v2/objects/search?&q=${encodeURIComponent(searchInput)}`;
+
     toggleVisibility(userAlert, false);
+
+    // Attempt API call
     try {
       clearResults();
       toggleVisibility(loadingRing, true);
