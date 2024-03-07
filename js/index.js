@@ -13,12 +13,14 @@ window.addEventListener("load", () => {
 
     if (!searchInput) {
       userAlert.classList.remove("hidden");
+      userAlert.classList.add("warning")
+
       userAlert.firstElementChild.textContent = "You cannot leave the search input box empty.";
       return;
     }
 
     userAlert.classList.add("hidden");
-
+    userAlert.classList.remove("warning")
 
     try {
       // Clear previous search results
@@ -35,6 +37,7 @@ window.addEventListener("load", () => {
 
       if (Object.keys(data.records).length == 0) {
         userAlert.classList.remove("hidden");
+        userAlert.classList.add("notification")
         userAlert.firstElementChild.textContent = "Oops! We couldn't find any results matching your search query.";
       }
 
